@@ -1,0 +1,41 @@
+#%RAML 0.8
+title: Direct Bus Route REST Api
+baseUri: http://localhost:8080/
+version: v1
+securitySchemes:
+  - basic:
+      type: Basic Authentication
+/api/direct:
+  get:
+    queryParameters:
+      dep_sid:
+        description: departure station id
+        type: integer
+      arr_sid:
+        description: arrival station id
+        type: integer
+    responses:
+      200:
+        body:
+          application/json:
+            schema: |
+              {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                  "dep_sid": {
+                    "type": "integer"
+                  },
+                  "arr_sid": {
+                    "type": "integer"
+                  },
+                  "direct_bus_route": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "dep_sid",
+                  "arr_sid",
+                  "direct_bus_route"
+                ]
+              }
