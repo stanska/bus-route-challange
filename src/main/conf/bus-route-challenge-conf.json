@@ -1,4 +1,4 @@
 {
-  "http.port" : 8080,
+  "http.port" : 8088,
   "file.path" : "./src/test/resources/testRoutes.txt"
 }
