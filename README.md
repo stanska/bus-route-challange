@@ -10,13 +10,13 @@ Related to https://github.com/goeuro/challenges/tree/master/bus_route_challenge
 
 ./service.sh start FILE
 
-Verticle start on 8080 port, but can be changed by editing src/main/conf/bus-route-challenge-conf.json
+Verticle start on 8088 port, but can be changed by editing src/main/conf/bus-route-challenge-conf.json
 
 ```
-  "http.port" : 8080,
+  "http.port" : 8088,
 ```
-
-The tests in the project use the following test file src/test/resources/testRoutes.txt
+### Log file
+/tmp/bus-route-challenge.log
 
 ### Stop
 
@@ -24,7 +24,7 @@ The tests in the project use the following test file src/test/resources/testRout
 
 ### Documentation
 
-There is an integrated api console for api test
+There is an integrated api console for api test and contract validation and documentation
 
-http://localhost:8080/api-console/dist/index.html?raml=http://localhost:8080/assets/bus.api.raml
+http://localhost:8088/api-console/dist/index.html?raml=http://localhost:8088/assets/bus.api.raml
 
