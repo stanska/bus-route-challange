@@ -1,2 +1,3 @@
- #!/bin/bash
-  mvn clean package
+#!/bin/bash
+unset BUS_SERVICE_PATH
+mvn clean package

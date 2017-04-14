@@ -3,7 +3,6 @@ package com.assignment.goeur;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
-import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.json.Json;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
@@ -15,7 +14,12 @@ public class BusRouteApi extends AbstractVerticle {
     BusRoutesForStations busRoutesForStations;
     @Override
     public void start(Future<Void> future) throws IOException {
-        FileProcessor fileProcessor = new FileProcessor(config().getString("file.path"));
+        String filePath = config().getString("file.path");
+        String envFilePath = System.getenv("BUS_SERVICE_PATH");
+        if ( envFilePath != null ) {
+            filePath = envFilePath;
+        }
+        FileProcessor fileProcessor = new FileProcessor(filePath);
         busRoutesForStations = fileProcessor.load();
 
         Router router = Router.router(vertx);
